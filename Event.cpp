@@ -1,10 +1,7 @@
 #include "Event.h"
 
-int counter = 0;
-
 Event::Event(const DateTime _d, const string _name, const int num)
 {
-    //counter++;
     this->date = _d;
     this->name = _name;
     this->numberOfHall = num;
@@ -53,7 +50,7 @@ int Event::getNumberOfHall()
 
 ostream& operator << (ostream& output, const Event& events)
 {
-    cout << "Date: " << events.date << "\nNumber of hall: " << events.numberOfHall << "\nName of the event: " << events.name << endl;
+    output << "Date: " << events.date << "\nNumber of hall: " << events.numberOfHall << "\nName of the event: " << events.name << endl;
    
     return output;
 }

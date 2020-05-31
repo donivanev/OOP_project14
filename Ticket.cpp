@@ -77,8 +77,8 @@ string Ticket::getStatus()
 
 ostream& operator << (ostream& output, const Ticket& ticket)
 {
-    output << "Ticket row: " << ticket.row << '\n' << "Ticket seat: "
-        << ticket.seat << "\nTicket date: " << ticket.date << '\n'
-        << "Note:" << ticket.note << "\nName: " << ticket.name << endl;
+    output << "Ticket row: " << ticket.row << '\n' << "Ticket seat: " << ticket.seat << 
+        "\nTicket date: " << ticket.date << '\n' << "Note: " << ticket.note << "\nName: " << ticket.name << endl;
+
     return output;
 }

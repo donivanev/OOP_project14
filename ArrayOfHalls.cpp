@@ -35,10 +35,6 @@ void ArrayOfHalls::addEvent(DateTime d, int h, string n)
         cout << "Event added." << endl;
     }
 
-    //for (int i = 0; i < 10; i++)
-    //{
-        //cout << events[i].getDate() << " " << events[i].getName() << endl;
-    //}
     cout << endl;
 }
 
@@ -299,7 +295,18 @@ ostream& operator << (ostream& output, const ArrayOfHalls& allHalls)
 {
     for (int i = 0; i < 10; i++)
     {
-        output << allHalls.tickets[i] << allHalls.events[i] << allHalls.halls[i] << endl;
+        output << allHalls.halls[i] << endl;
     }
+
+    for (Event e : allHalls.events)
+    {
+        output << e << endl;
+    }
+
+    for (Ticket t : allHalls.tickets)
+    {
+        output << t << endl;
+    }
+
     return output;
 }

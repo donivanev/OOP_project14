@@ -9,6 +9,13 @@ int main()
     {
         getline(cin, command);
         string firstWord = command.substr(0, command.find(" "));
-        console.processCommand(firstWord, command);
+        if (firstWord == "exit")
+        {
+            cout << "Exiting the program..." << endl;
+            return 0;
+        }
+        else console.processCommand(firstWord, command);
     }
+
+    return 0;
 }

@@ -121,7 +121,6 @@ void ConsoleHandler::checkFunction(string firstWord, string command)
             {
                 theatre.addEvent(date, stoi(vector.at(2)), name);
             }
-            //theathe.printHalls();
         }
     }
     else if (firstWord == "freeseats")
@@ -342,6 +341,8 @@ void ConsoleHandler::open(string path)
             f_fileName = token;
             token = strtok(NULL, "\\");
         }
+
+        delete[] token;
     }
 }
 
@@ -412,6 +413,7 @@ void ConsoleHandler::saveAs(string path)
 
             cout << "Successfully saved in " << currentName << endl;
             newstream.close();
+            delete[] token;
         }
     }
 }
@@ -439,32 +441,37 @@ void ConsoleHandler::help()
 
 void ConsoleHandler::processCommand(string firstWord, string command)
 {
-    string commandName, path = "";
-    char* token;
-    string _command = command;
+    //string commandName, path = "";
+    //char* token;
+    //string _command = command;
 
-    token = strtok(&command[0], " ");
+    //token = strtok(&command[0], " ");
+    //commandName = token;
+    //token = strtok(NULL, " ");
 
-    commandName = token;
+    //if (token != NULL)
+    //{
+        //path = token;
+    //}
 
-    token = strtok(NULL, " ");
+    string  _command = command, path = "";
+    vector<string> v;
 
-    if (token != NULL)
+    if (firstWord == "open")
     {
-        path = token;
-    }
-
-    if (commandName == "open")
-    {
+        splitString(command, v);
+        path = v[1];
         f_filePath = path;
         open(path);
     }
-    else if (commandName == "save")
+    else if (firstWord == "save")
     {
         save();
     }
-    else if (commandName == "saveas")
+    else if (firstWord == "saveas")
     {
+        splitString(command, v);
+        path = v[1];
         if (path == "")
         {
             cout << "Invalid command.Try again!";
@@ -474,15 +481,15 @@ void ConsoleHandler::processCommand(string firstWord, string command)
             saveAs(path);
         }
     }
-    else if (commandName == "close")
+    else if (firstWord == "close")
     {
         close();
     }
-    else if (commandName == "help")
+    else if (firstWord == "help")
     {
         help();
     }
-    else if (commandName == "exit")
+    else if (firstWord == "exit")
     {
         exit();
     }

@@ -3,8 +3,6 @@
 Hall::Hall(const int n)
 {
 	this->number = n;
-	//this->rows = r;
-	//this->columns = c;
 
 	ticketMatrix.resize(10);
 	for (int i = 0; i < ticketMatrix.size(); i++)
@@ -20,8 +18,6 @@ Hall::Hall(const int n)
 Hall::Hall(const Hall& other)
 {
 	number = other.number;
-	//rows = other.rows;
-	//columns = other.columns;
 	ticketMatrix = other.ticketMatrix;
 }
 
@@ -30,8 +26,6 @@ Hall& Hall::operator=(const Hall& other)
 	if (this != &other)
 	{
 		number = other.number;
-		//rows = other.rows;
-		//columns = other.columns;
 		ticketMatrix = other.ticketMatrix;
 	}
 
@@ -45,19 +39,16 @@ int Hall::getNumber()
 
 int Hall::getRows()
 {
-	//return this->rows;
 	return 10;
 }
 
 int Hall::getSeats()
 {
-	//return this->columns;
 	return 10;
 }
 
 int Hall::getCapacity()
 {
-	//return rows * columns;
 	return 100;
 }
 
@@ -135,11 +126,6 @@ void Hall::addBuying(int row, int seat)
 	ticketMatrix[row - 1][seat - 1] = "bought";
 }
 
-void Hall::removeBooking(int row, int seat)
-{
-	ticketMatrix[row - 1][seat - 1] = "free";
-}
-
 void Hall::printSeats()
 {
 	for (int i = 0; i < ticketMatrix.size(); i++)
@@ -154,8 +140,7 @@ void Hall::printSeats()
 
 ostream& operator << (ostream& output, const Hall& hall)
 {
-	output << "Hall number: " << hall.number << '\n' << "Hall rows: "
-		<< 10 << "\nHall seats: " << 10 << '\n';
+	output << "Hall number: " << hall.number << '\n' << "Hall rows: " << 10 << "\nHall seats: " << 10 << '\n';
 
 	return output;
 }

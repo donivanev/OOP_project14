@@ -20,8 +20,8 @@ public:
 	int getRows();
 	int getSeats();
 	int getCapacity();
-	string getStatus(int row, int seat);
 
+	string getStatus(int row, int seat);
 	int getFreeSeats();
 	int getReservedTickets();
 	int getBoughtTickets();
@@ -29,7 +29,6 @@ public:
 	void changeStatus(int row, int seat, string stat);
 	void addBooking(int row, int seat);
 	void addBuying(int row, int seat);
-	void removeBooking(int row, int seat);
 
 	void printSeats();
 	friend ostream& operator << (ostream& output, const Hall& hall);
